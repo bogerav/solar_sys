@@ -111,15 +111,17 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(str(obj.type),
-                  format_float_scientific(float32(obj.R), unique=True),
-                  obj.color,
-                  format_float_scientific(float32(obj.m), unique=True),
-                  format_float_scientific(float32(obj.x), unique=True),
-                  format_float_scientific(float32(obj.y), unique=True),
-                  format_float_scientific(float32(obj.Vx), unique=True),
-                  format_float_scientific(float32(obj.Vy), unique=True),
-                  '\n', file=out_file)
+            temp = []
+            temp.append(obj.type)
+            temp.append(obj.R)
+            temp.append(obj.color)
+            temp.appent(obj.m)
+            temp.append(obj.x)
+            temp.append(obj.y)
+            temp.append(obj.Vx)
+            temp.append(obj.Vy)
+            data = " ".join(temp)
+            print(data, file = output_filename)
 
 
 if __name__ == "__main__":
