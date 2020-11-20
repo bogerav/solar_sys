@@ -78,7 +78,7 @@ class DrawableObject:
     def __init__(self, obj):
         self.obj = obj
         self.colors = {"red": (255, 0, 0), "orange": (255, 128, 0), "blue": (0, 0, 255), "green": (0, 255, 0),
-                       "yellow": (255, 255, 0), "white": (255, 255, 255), "gray": (100, 100, 100)}
+                       "yellow": (255, 255, 0), "white": (255, 255, 255), "gray": (100, 100, 100), "cyan": (0, 255, 255)}
 
     def draw(self, surface):
         x = scale_x(self.obj.x)
