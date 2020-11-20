@@ -59,28 +59,16 @@ def scale_y(y):
     """
     return int(-y * scale_factor) + window_height // 2
 
-def create_planet_image(space, planet):
-    """Создаёт отображаемый объект планеты.
-    Параметры:
-    **space** — холст для рисования.
-    **planet** — объект планеты.
-    """
-
-
-if __name__ == "__main__":
-    print("This module is not for direct call!")
-
 
 class Drawer:
     def __init__(self, screen):
         self.screen = screen
 
-
     def update(self, figures, ui):
         self.screen.fill((0, 0, 0))
         for figure in figures:
             figure.draw(self.screen)
-        
+
         ui.blit()
         ui.update()
         pg.display.update()
@@ -89,11 +77,17 @@ class Drawer:
 class DrawableObject:
     def __init__(self, obj):
         self.obj = obj
-        self.colors = {"red": (255, 0, 0), "orange": (255, 128, 0), "blue": (0, 0, 255), "green": (0, 255, 0), "yellow": (255, 255, 0), "white": (255, 255, 255), "gray": (100, 100, 100)}
+        self.colors = {"red": (255, 0, 0), "orange": (255, 128, 0), "blue": (0, 0, 255), "green": (0, 255, 0),
+                       "yellow": (255, 255, 0), "white": (255, 255, 255), "gray": (100, 100, 100)}
 
     def draw(self, surface):
         x = scale_x(self.obj.x)
         y = scale_y(self.obj.y)
         r = self.obj.R
         self.image = pg.draw.circle(surface, self.colors[self.obj.color], (x, y), r)
+
+if __name__ == "__main__":
+    print("This module is not for direct call!")
+
+
 
