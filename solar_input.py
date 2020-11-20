@@ -112,16 +112,17 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
             temp = []
-            temp.append(obj.obj.type)
-            temp.append(obj.obj.R)
-            temp.append(obj.obj.color)
-            temp.appent(obj.obj.m)
-            temp.append(obj.obj.x)
-            temp.append(obj.obj.y)
-            temp.append(obj.obj.Vx)
-            temp.append(obj.obj.Vy)
+            temp.append(str(obj.obj.type))
+            temp.append(str(obj.obj.R))
+            temp.append(str(obj.obj.color))
+            temp.append(str(obj.obj.m))
+            temp.append(str(obj.obj.x))
+            temp.append(str(obj.obj.y))
+            temp.append(str(obj.obj.Vx))
+            temp.append(str(obj.obj.Vy))
             data = " ".join(temp)
-            print(data, file = output_filename)
+            out_file.write(data)
+            out_file.write('\n')
 
 
 if __name__ == "__main__":
